@@ -15,12 +15,6 @@ from Asteroidenfeld import Asteroidenfeld
 # |-------------------------| #
 
 
-# exit game
-def exitGame():
-    print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
-    gameOver = True
-
-
 class Sonnensystem:
 
     # main method
@@ -106,7 +100,8 @@ class Sonnensystem:
                                     break
                             else:
                                 print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " wurde zerstört")
-                                exitGame()
+                                print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
+                                gameOver = True
                         else:
                             print("Das Raumschiff " + c.BLUE + falcon_heavy.getName() + c.END + " wurde zerstört")
 
@@ -140,7 +135,8 @@ class Sonnensystem:
                         print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " hat noch " + c.BOLD + str(starship.getHealthPoints()) + c.END + " Lebenspunkte")
                     else:
                         print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " wurde zerstört")
-                        exitGame()
+                        print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
+                        gameOver = True
 
 
 # Main
