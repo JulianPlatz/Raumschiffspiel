@@ -2,6 +2,13 @@ import random
 from Colors import Colors as c
 
 
+# |-------------------------| #
+# |---- Raumschiffspiel ----| #
+# |---- Julian Platz -------| #
+# |---- FI-A 32 ------------| #
+# |-------------------------| #
+
+
 class Kapitaen:
 
     # constructor

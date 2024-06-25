@@ -1,3 +1,12 @@
+
+
+# |-------------------------| #
+# |---- Raumschiffspiel ----| #
+# |---- Julian Platz -------| #
+# |---- FI-A 32 ------------| #
+# |-------------------------| #
+
+
 class Asteroidenfeld:
 
     # constructor

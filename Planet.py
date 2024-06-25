@@ -1,6 +1,13 @@
 from Ladung import Ladung
 
 
+# |-------------------------| #
+# |---- Raumschiffspiel ----| #
+# |---- Julian Platz -------| #
+# |---- FI-A 32 ------------| #
+# |-------------------------| #
+
+
 class Planet:
 
     # constructor

@@ -8,6 +8,13 @@ from Raumschiff import Raumschiff
 from Asteroidenfeld import Asteroidenfeld
 
 
+# |-------------------------| #
+# |---- Raumschiffspiel ----| #
+# |---- Julian Platz -------| #
+# |---- FI-A 32 ------------| #
+# |-------------------------| #
+
+
 # exit game
 def exitGame():
     print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
@@ -79,9 +86,11 @@ class Sonnensystem:
                 else:
                     print("Hier ist das Raumschiff " + c.BLUE + falcon_heavy.getName() + c.END)
 
+                # negotiation success or not
                 negotiationResult = captain_x.negotiation()
                 print(negotiationResult)
 
+                # spaceship attack + counterAttack
                 attackAction = input("Möchten Sie angreifen? (Y/n): ")
                 if attackAction == 'Y' or attackAction == 'y':
                     while falcon_heavy.getHealthPoints() > 0 and starship.getHealthPoints() > 0:
