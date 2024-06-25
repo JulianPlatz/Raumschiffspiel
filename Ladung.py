@@ -17,8 +17,5 @@ class Ladung:
         return self._units
 
     # setter
-    def setName(self, name):
-        self._name = name
-
     def setUnits(self, units):
         self._units = units

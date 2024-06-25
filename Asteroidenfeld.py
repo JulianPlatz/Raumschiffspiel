@@ -34,6 +34,3 @@ class Asteroidenfeld:
 
     def getPosY(self):
         return self._posY
-
-    def getDamage(self):
-        return self._damage

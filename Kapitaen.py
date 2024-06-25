@@ -26,19 +26,3 @@ class Kapitaen:
     # getter
     def getName(self):
         return self._name
-
-    def getCharisma(self):
-        return self._charisma
-
-    def getExperience(self):
-        return self._experience
-
-    # setter
-    def setName(self, name):
-        self._name = name
-
-    def setCharisma(self, charisma):
-        self._charisma = charisma
-
-    def setExperience(self, experience):
-        self._experience = experience

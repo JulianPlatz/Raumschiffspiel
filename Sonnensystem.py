@@ -8,6 +8,12 @@ from Raumschiff import Raumschiff
 from Asteroidenfeld import Asteroidenfeld
 
 
+# exit game
+def exitGame():
+    print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
+    gameOver = True
+
+
 class Sonnensystem:
 
     # main method
@@ -28,8 +34,8 @@ class Sonnensystem:
         # planets
         planets = [
             Planet("Erde", True, 2, 2),
-            Planet("Mars", True, r.randint(-5, 5), r.randint(-5, 5)),
-            Planet("Jupiter", True, r.randint(-5, 5), r.randint(-5, 5))
+            Planet("Mars", True, r.randint(0, 5), r.randint(0, 5)),
+            Planet("Planet-X", True, r.randint(0, 5), r.randint(0, 5))
         ]
 
         # charge
@@ -42,10 +48,10 @@ class Sonnensystem:
         planets[1].setCharge(energiezelle)
         planets[2].setCharge(energiespule)
 
-        # asteroidenfield
+        # asteroidenfields
         asteroidenfields = [
             Asteroidenfeld("Asteroid Small", 3, 3, 50),
-            Asteroidenfeld("Asteroid Big", -2, -1, 150)
+            Asteroidenfeld("Asteroid Big", 4, 5, 150)
         ]
 
         # |--------------------| #
@@ -91,8 +97,7 @@ class Sonnensystem:
                                     break
                             else:
                                 print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " wurde zerstört")
-                                print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
-                                gameOver = True
+                                exitGame()
                         else:
                             print("Das Raumschiff " + c.BLUE + falcon_heavy.getName() + c.END + " wurde zerstört")
 
@@ -126,9 +131,9 @@ class Sonnensystem:
                         print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " hat noch " + c.BOLD + str(starship.getHealthPoints()) + c.END + " Lebenspunkte")
                     else:
                         print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " wurde zerstört")
-                        print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
-                        gameOver = True
+                        exitGame()
 
 
+# Main
 if __name__ == '__main__':
     Sonnensystem.main()

@@ -36,9 +36,6 @@ class Planet:
     def getPosY(self):
         return self._posY
 
-    def getCoordinates(self):
-        return [self._posX, self._posY]
-
     def getCharge(self):
         return self._charge
 
