@@ -5,6 +5,7 @@ from Ladung import Ladung
 from Kapitaen import Kapitaen
 from Colors import Colors as c
 from Raumschiff import Raumschiff
+from Asteroidenfeld import Asteroidenfeld
 
 
 class Sonnensystem:
@@ -41,6 +42,12 @@ class Sonnensystem:
         planets[1].setCharge(energiezelle)
         planets[2].setCharge(energiespule)
 
+        # asteroidenfield
+        asteroidenfields = [
+            Asteroidenfeld("Asteroid Small", 3, 3, 50),
+            Asteroidenfeld("Asteroid Big", -2, -1, 150)
+        ]
+
         # |--------------------| #
         # |---- game start ----| #
         # |--------------------| #
@@ -75,14 +82,10 @@ class Sonnensystem:
                         starship.attack(falcon_heavy)
                         print("------------------------------")
                         if falcon_heavy.getHealthPoints() > 0:
-                            print(
-                                "Das Raumschiff " + c.BLUE + falcon_heavy.getName() + c.END + " hat noch " + c.BOLD + str(
-                                    falcon_heavy.getHealthPoints()) + c.END + " Lebenspunkte")
+                            print("Das Raumschiff " + c.BLUE + falcon_heavy.getName() + c.END + " hat noch " + c.BOLD + str(falcon_heavy.getHealthPoints()) + c.END + " Lebenspunkte")
                             falcon_heavy.counterAttack(starship)
                             if starship.getHealthPoints() > 0:
-                                print(
-                                    "Das Raumschiff " + c.BLUE + starship.getName() + c.END + " hat noch " + c.BOLD + str(
-                                        starship.getHealthPoints()) + c.END + " Lebenspunkte")
+                                print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " hat noch " + c.BOLD + str(starship.getHealthPoints()) + c.END + " Lebenspunkte")
                                 attackAgain = input("Möchten Sie erneut angreifen? (Y/n): ")
                                 if attackAgain != 'Y' and attackAgain != 'y':
                                     break
@@ -111,7 +114,20 @@ class Sonnensystem:
                             print("Eine Ladung " + c.BOLD + charge.getName() + c.END + " wurde aufgenommen")
                         else:
                             print("------------------------------")
-                            print("Keine Ladung mehr auf dem Planeten vorhanden.")
+                            print("Keine Ladung mehr auf dem Planeten vorhanden")
+
+            # 'spaceship on asteroidenfield' check
+            for asteroidenfield in asteroidenfields:
+                if starship.checkCoordinates(asteroidenfield.getPosX(), asteroidenfield.getPosY()):
+                    print("------------------------------")
+                    print("Der Asteroid " + c.BOLD + asteroidenfield.getName() + c.END + " ist auf das Raumschiff " + c.BLUE + starship.getName() + c.END + " geprallt")
+                    asteroidenfield.attack(starship)
+                    if starship.getHealthPoints() > 0:
+                        print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " hat noch " + c.BOLD + str(starship.getHealthPoints()) + c.END + " Lebenspunkte")
+                    else:
+                        print("Das Raumschiff " + c.BLUE + starship.getName() + c.END + " wurde zerstört")
+                        print(c.RED + "---- Das Spiel ist beendet ----" + c.END)
+                        gameOver = True
 
 
 if __name__ == '__main__':
